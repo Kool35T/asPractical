@@ -57,7 +57,7 @@ namespace WebApplication3.Pages
                     string pwdWithSalt = salt + LModel.Password;
 
                     var identityResult = await signInManager.PasswordSignInAsync(LModel.Email, pwdWithSalt,
-                    LModel.RememberMe, lockoutOnFailure: true);
+                    LModel.RememberMe, true);
                     if (identityResult.Succeeded)
                     {
                         HttpContext.Session.SetString("LoggedIn", LModel.Email);
@@ -71,12 +71,12 @@ namespace WebApplication3.Pages
 
                         //Create the security context
                         var claims = new List<Claim>
-                    {
+                        {
                         new Claim(ClaimTypes.Email, LModel.Email),
 
                         //This gives the new registered user a role of User
                         new Claim("Role", "User")
-                    };
+                        };
                         var i = new ClaimsIdentity(claims, "MyCookieAuth");
                         ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(i);
 
@@ -84,11 +84,12 @@ namespace WebApplication3.Pages
 
                         return RedirectToPage("Index");
                     }
-
                     else
                     {
                         if (identityResult.IsLockedOut)
                         {
+                            TempData["FlashMessage.Type"] = "danger";
+                            TempData["FlashMessage.Text"] = string.Format("Your account is locked out. Kindly wait for 1 minute and try again", LModel.Email);
                             ModelState.AddModelError("LockoutError", "Your account is locked out. Kindly wait for 1 minute and try again");
                             return Page();
                         }
