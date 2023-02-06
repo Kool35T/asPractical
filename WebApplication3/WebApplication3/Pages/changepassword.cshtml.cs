@@ -33,14 +33,14 @@ namespace WebApplication3.Pages
                 var protector = dataProtectionProvider.CreateProtector("MySecretKey");
 
                 var salt = protector.Unprotect(user.passwordSalt);
-                //                string oldpwdWithSalt = salt + CModel.OldPassword;
+                                string oldpwdWithSalt = salt + CModel.OldPassword;
                 string newpwdWithSalt = salt + CModel.NewPassword;
                 //
-                //                var result = await _userManager.ChangePasswordAsync(user, oldpwdWithSalt, newpwdWithSalt);
+                                var result = await _userManager.ChangePasswordAsync(user, oldpwdWithSalt, newpwdWithSalt);
 
-                var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+                //var token = await _userManager.GeneratePasswordResetTokenAsync(user);
 
-                var result = await _userManager.ResetPasswordAsync(user, token, newpwdWithSalt);
+                //var result = await _userManager.ResetPasswordAsync(user, token, newpwdWithSalt);
                 return Page();
             }
             return Page();
