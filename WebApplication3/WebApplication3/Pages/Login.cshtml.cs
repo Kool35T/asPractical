@@ -84,8 +84,15 @@ namespace WebApplication3.Pages
 
                         return RedirectToPage("Index");
                     }
+
                     else
                     {
+                        if (identityResult.IsLockedOut)
+                        {
+                            ModelState.AddModelError("LockoutError", "Your account is locked out. Kindly wait for 1 minute and try again");
+                            return Page();
+                        }
+
                         TempData["FlashMessage.Type"] = "danger";
                         TempData["FlashMessage.Text"] = string.Format("invalid email or password for {0}", LModel.Email);
                         ModelState.AddModelError("", "Username or Password incorrect");
@@ -97,6 +104,7 @@ namespace WebApplication3.Pages
                     TempData["FlashMessage.Text"] = string.Format("invalid email or password for {0}", LModel.Email);
                     ModelState.AddModelError("", "Username or Password incorrect");
                 }
+
             }
             return Page();
         }

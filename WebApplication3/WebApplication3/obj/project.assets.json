@@ -2238,11 +2238,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\210761Z\\Desktop\\WebApplication3\\WebApplication3\\WebApplication3.csproj",
+      "projectUniqueName": "D:\\Users\\210761Z\\Documents\\GitHub\\asPractical\\WebApplication3\\WebApplication3\\WebApplication3.csproj",
       "projectName": "WebApplication3",
-      "projectPath": "D:\\Users\\210761Z\\Desktop\\WebApplication3\\WebApplication3\\WebApplication3.csproj",
+      "projectPath": "D:\\Users\\210761Z\\Documents\\GitHub\\asPractical\\WebApplication3\\WebApplication3\\WebApplication3.csproj",
       "packagesPath": "D:\\Users\\210761Z\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\210761Z\\Desktop\\WebApplication3\\WebApplication3\\obj\\",
+      "outputPath": "D:\\Users\\210761Z\\Documents\\GitHub\\asPractical\\WebApplication3\\WebApplication3\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
